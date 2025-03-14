@@ -27,13 +27,14 @@ export const Telefone = styled.textarea`
   color: #fff;
   font-size: 18px;
   line-height: 24px;
-  font-family: 'Roboto Mono', monospace;
   display: block;
   padding-left: 8px;
   margin-bottom: 16px;
   width: 100%;
   border: none;
   resize: none;
+  font-family: Inter, sans-serif;
+
   background-color: transparent;
 `
 
@@ -41,7 +42,7 @@ export const Email = styled.textarea`
   color: #fff;
   font-size: 18px;
   line-height: 24px;
-  font-family: 'Roboto Mono', monospace;
+  font-family: Inter, sans-serif;
   display: block;
   width: 100%;
   margin-bottom: 16px;
