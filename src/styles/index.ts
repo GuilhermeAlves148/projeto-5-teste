@@ -8,6 +8,9 @@ const EstiloGlobal = createGlobalStyle`
     box-sizing: border-box;
     font-family: Roboto, sans-serif;
     list-style: none;
+    color: #fff;
+    background-color: ${variaveis.fundo};
+
   }
 `
 export const Container = styled.div`
@@ -17,8 +20,6 @@ export const Container = styled.div`
 export const MainContainer = styled.main`
   margin-top: 32px;
   padding: 0 40px;
-  height: 100vh;
-  overflow-y: scroll;
 `
 
 export const Titulo = styled.h2`
@@ -30,11 +31,11 @@ export const Titulo = styled.h2`
 `
 export const Campo = styled.input`
   border-radius: 8px;
-  padding: 8px;
-  background-color: #fff;
+  padding: 16px;
+  margin-bottom: 6px;
   font-weight: bold;
-  color: #666;
-  border-color: #666;
+  color: #fff;
+  border-color: ${variaveis.borda};
   border: 1px solid;
   width: 100%;
 `

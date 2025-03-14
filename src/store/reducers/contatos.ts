@@ -15,13 +15,13 @@ const initialState: ContatosState = {
     },
     {
       id: 2,
-      nome: 'Claudio',
+      nome: 'Claudio Luiz Schrengell',
       telefone: 51940028922,
       email: 'claudioluiz@gmail.com'
     },
     {
-      id: 1,
-      nome: 'Paulo',
+      id: 3,
+      nome: 'Paulo Nogueira',
       telefone: 51992983304,
       email: 'paulonogueira@gmail.com'
     }

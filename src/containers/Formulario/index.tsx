@@ -40,6 +40,7 @@ const Formulario = () => {
           placeholder="Nome completo"
         />
         <Campo
+          className="numero"
           value={telefone}
           onChange={(evento) => setTelefone(parseInt(evento.target.value))}
           type="number"

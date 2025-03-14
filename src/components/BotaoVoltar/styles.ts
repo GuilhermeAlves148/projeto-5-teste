@@ -5,7 +5,8 @@ import variaveis from '../../styles/variaveis'
 export const Circulo = styled(Link)`
   height: 64px;
   width: 64px;
-  background-color: ${variaveis.verde};
+  border: 2px solid #fff;
+  background-color: ${variaveis.azulEscuro};
   color: #fff;
   position: fixed;
   bottom: 40px;

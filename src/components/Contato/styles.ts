@@ -3,8 +3,8 @@ import variaveis from '../../styles/variaveis'
 import { Botao } from '../../styles'
 
 export const Card = styled.div`
-  background-color: #fcfcfc;
-  box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+  background-color: ${variaveis.fundo};
+  border: 1px solid ${variaveis.borda};
   padding: 16px;
   margin-bottom: 32px;
   border-radius: 16px;
@@ -20,6 +20,36 @@ export const Titulo = styled.h3`
   font-size: 18px;
   font-weight: bold;
   margin-left: 8px;
+  color: #fff;
+`
+
+export const Telefone = styled.textarea`
+  color: #fff;
+  font-size: 18px;
+  line-height: 24px;
+  font-family: 'Roboto Mono', monospace;
+  display: block;
+  padding-left: 8px;
+  margin-bottom: 16px;
+  width: 100%;
+  border: none;
+  resize: none;
+  background-color: transparent;
+`
+
+export const Email = styled.textarea`
+  color: #fff;
+  font-size: 18px;
+  line-height: 24px;
+  font-family: 'Roboto Mono', monospace;
+  display: block;
+  width: 100%;
+  margin-bottom: 16px;
+  margin-top: 16px;
+  padding-left: 8px;
+  resize: none;
+  border: none;
+  background-color: transparent;
 `
 
 export const Tag = styled.span`

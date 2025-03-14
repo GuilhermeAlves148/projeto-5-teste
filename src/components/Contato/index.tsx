@@ -1,4 +1,4 @@
-import { ChangeEvent, useEffect, useState } from 'react'
+import { ChangeEvent, SetStateAction, useEffect, useState } from 'react'
 import { useDispatch } from 'react-redux'
 import * as S from './styles'
 
@@ -53,6 +53,16 @@ const Contato = ({
           {nome}
         </S.Titulo>
       </label>
+      <S.Telefone
+        disabled={!estaEditando}
+        value={telefone}
+        onChange={(evento) => setTelefone(evento.target.value)}
+      />
+      <S.Email
+        disabled={!estaEditando}
+        value={email}
+        onChange={(evento) => setEmail(evento.target.value)}
+      />
       <S.BarraAcoes>
         {estaEditando ? (
           <>

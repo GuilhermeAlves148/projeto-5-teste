@@ -5,7 +5,6 @@ export const Form = styled.form`
   width: 100%;
   font-weight: bold;
   font-size: 14px;
-  color: #666;
 
   textarea {
     resize: none;
