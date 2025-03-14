@@ -1,65 +1,58 @@
 import { ChangeEvent, useEffect, useState } from 'react'
 import { useDispatch } from 'react-redux'
 import * as S from './styles'
-import * as enums from '../../utils/enums/Tarefa'
 
-import { remover, editar, alteraStatus } from '../../store/reducers/tarefas'
-import TarefaClass from '../../models/Tarefa'
+import { remover, editar } from '../../store/reducers/contatos'
+import TarefaClass from '../../models/Contato'
 import { Botao, BotaoSalvar } from '../../styles'
 
 type Props = TarefaClass
 
-const Tarefa = ({
-  descricao: descricaoOriginal,
-  prioridade,
-  status,
-  titulo,
+const Contato = ({
+  nome: nomeOriginal,
+  telefone: telefoneOriginal,
+  email: emailOriginal,
   id
 }: Props) => {
   const dispatch = useDispatch()
   const [estaEditando, setEstaEditando] = useState(false)
-  const [descricao, setDescricao] = useState('')
+  const [nome, setNome] = useState('')
+  const [telefone, setTelefone] = useState('')
+  const [email, setEmail] = useState('')
 
   useEffect(() => {
-    if (descricaoOriginal.length > 0) {
-      setDescricao(descricaoOriginal)
+    if (nomeOriginal.length > 0) {
+      setNome(nomeOriginal)
     }
-  }, [descricaoOriginal])
+  }, [nomeOriginal])
+
+  useEffect(() => {
+    if (telefoneOriginal.toString().length > 0) {
+      setTelefone(telefoneOriginal.toString())
+    }
+  }, [telefoneOriginal])
+
+  useEffect(() => {
+    if (emailOriginal.length > 0) {
+      setEmail(emailOriginal)
+    }
+  }, [emailOriginal])
 
   function cancelarEdicao() {
     setEstaEditando(false)
-    setDescricao(descricaoOriginal)
-  }
-
-  function alteraStatusTarefa(evento: ChangeEvent<HTMLInputElement>) {
-    dispatch(alteraStatus({ id, finalizado: evento.target.checked }))
+    setNome(nomeOriginal)
+    setEmail(emailOriginal)
+    setTelefone(telefoneOriginal.toString())
   }
 
   return (
     <S.Card>
-      <label htmlFor={titulo}>
-        <input
-          type="checkbox"
-          id={titulo}
-          checked={status === enums.Status.CONCLUIDA}
-          onChange={alteraStatusTarefa}
-        />
+      <label htmlFor={nome}>
         <S.Titulo>
           {estaEditando && <em>Editando: </em>}
-          {titulo}
+          {nome}
         </S.Titulo>
       </label>
-      <S.Tag parametro="prioridade" prioridade={prioridade}>
-        {prioridade}
-      </S.Tag>
-      <S.Tag parametro="status" status={status}>
-        {status}
-      </S.Tag>
-      <S.Descricao
-        disabled={!estaEditando}
-        value={descricao}
-        onChange={(evento) => setDescricao(evento.target.value)}
-      />
       <S.BarraAcoes>
         {estaEditando ? (
           <>
@@ -67,10 +60,9 @@ const Tarefa = ({
               onClick={() => {
                 dispatch(
                   editar({
-                    descricao,
-                    prioridade,
-                    status,
-                    titulo,
+                    nome,
+                    telefone: parseInt(telefone),
+                    email,
                     id
                   })
                 )
@@ -96,4 +88,4 @@ const Tarefa = ({
   )
 }
 
-export default Tarefa
+export default Contato
