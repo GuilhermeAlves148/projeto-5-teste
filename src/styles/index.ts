@@ -10,13 +10,12 @@ const EstiloGlobal = createGlobalStyle`
     list-style: none;
   }
 `
-
 export const Container = styled.div`
-  display: grid;
   grid-template-columns: 224px auto;
 `
 
 export const MainContainer = styled.main`
+  margin-top: 32px;
   padding: 0 40px;
   height: 100vh;
   overflow-y: scroll;

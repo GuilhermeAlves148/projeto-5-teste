@@ -1,15 +1,15 @@
 import { useSelector } from 'react-redux'
-import Tarefa from '../../components/Tarefa'
-import { MainContainer, Titulo } from '../../styles'
+import Contato from '../../components/Contato'
+import { MainContainer } from '../../styles'
 import { RootReducer } from '../../store'
 
-const ListaDeTarefas = () => {
+const ListaDeContatos = () => {
   const { itens } = useSelector((state: RootReducer) => state.tarefas)
   const { termo, criterio, valor } = useSelector(
     (state: RootReducer) => state.filtro
   )
 
-  const filtraTarefas = () => {
+  const filtraContatos = () => {
     let tarefasFiltradas = itens
     if (termo !== undefined) {
       tarefasFiltradas = tarefasFiltradas.filter(
@@ -33,30 +33,14 @@ const ListaDeTarefas = () => {
     }
   }
 
-  const exibeResultadoFiltragem = (quantidade: number) => {
-    let mensagem = ''
-    const complementacao =
-      termo !== undefined && termo.length > 0 ? `e "${termo}"` : ''
-
-    if (criterio === 'todas') {
-      mensagem = `${quantidade} tarefa(s) encontrada(s) como: todas  ${complementacao}`
-    } else {
-      mensagem = `${quantidade} tarefa(s) encontrada(s) como: "${`${criterio} = ${valor}`}" ${complementacao}`
-    }
-
-    return mensagem
-  }
-
-  const tarefas = filtraTarefas()
-  const mensagem = exibeResultadoFiltragem(tarefas.length)
+  const tarefas = filtraContatos()
 
   return (
     <MainContainer>
-      <Titulo as="p">{mensagem}</Titulo>
       <ul>
         {tarefas.map((t) => (
           <li key={t.titulo}>
-            <Tarefa
+            <Contato
               id={t.id}
               descricao={t.descricao}
               titulo={t.titulo}
@@ -70,4 +54,4 @@ const ListaDeTarefas = () => {
   )
 }
 
-export default ListaDeTarefas
+export default ListaDeContatos

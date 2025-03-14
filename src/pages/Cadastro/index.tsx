@@ -1,10 +1,10 @@
-import BarraLateral from '../../containers/BarraLateral'
+import BotaoRetorno from '../../components/BotaoVoltar'
 import Formulario from '../../containers/Formulario'
 
 const Cadastro = () => (
   <>
-    <BarraLateral mostrarFiltros={false} />
     <Formulario />
+    <BotaoRetorno />
   </>
 )
 
